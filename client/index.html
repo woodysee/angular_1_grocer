@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=7">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <!-- Needed for removal of hashbang in Client root URL (i.e. #!) -->
+        <base href="/">
+        <title>Angular 1.x Grocer</title>
+        <!-- External style dependencies -->
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+        <!-- End: External style dependencies -->
+        <!-- Internal style dependencies -->
+
+        <!-- End: Internal style dependencies -->
+    </header>
+    <body ng-app="Client" ng-cloak>
+        <h1 class="container">Grocer's Inventory</h1>
+        <div class="container" role="navigation">
+            <ul class="nav nav-tabs">
+                <li role="presentation">
+                    <a ui-sref="Search" ui-sref-active="active">Search product records</a>
+                </li>
+                <li role="presentation">
+                    <a ui-sref="Add" ui-sref-active="active">Add product record</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container" ng-cloak>
+            <ui-view></ui-view>
+        </div>
+    </body>
+    <!-- External script dependencies -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <!-- End: External script dependencies -->
+    <!-- Internal script dependencies -->
+    <script src="client.module.js"></script>
+    <!-- Angular 1 UI router import and service do not need to be in a specific order -->
+    <script type="text/javascript" src="client.router.js"></script>
+    <script type="text/javascript" src="grocery.service.js"></script>
+    <script type="text/javascript" src="grocery.vm.js"></script>
+    <!-- End: Internal script dependencies -->
+</html>

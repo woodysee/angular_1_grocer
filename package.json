@@ -1,0 +1,24 @@
+{
+  "name": "angular_1_grocer",
+  "version": "1.0.0",
+  "description": "A 3-page Grocery Management module using Angular 1.x, Express.js and MySQL",
+  "main": "server/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/woodysee/angular_1_grocer.git"
+  },
+  "author": "Woody See",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/woodysee/angular_1_grocer#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "dotenv": "^4.0.0",
+    "express": "^4.16.2",
+    "mysql2": "^1.4.2",
+    "q": "^1.5.1",
+    "sequelize": "^4.22.5"
+  }
+}

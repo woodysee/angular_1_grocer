@@ -1,0 +1,65 @@
+<div class="jumbotron">
+    <form name="searchForm" ng-submit="vm.searchGrocery()">
+        <div class="form-group col-md-6 keyword">
+            <input type="text" class="form-control" ng-model="vm.searchKeyword" />
+        </div>
+        <div class="form-group col-md-2">
+            <select name="searchType" class="form-control" ng-model="vm.searchType" id="searchType">
+                <option value="" disabled>Search by:</option>
+                <option value="name" selected>Name</option>
+                <option value="brand">Brand</option>
+                <option value="name_brand">Name + Brand</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <select name="orderBy" class="form-control" ng-model="vm.orderBy" id="orderBy">
+                <option value="" disabled>Order by:</option>
+                <option value="ASC" selected>Ascending</option>
+                <option value="DESC">Descending</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-success">
+            Submit
+        </button>
+    </form>
+</div>
+<hr />
+<div class="container list" ng-show="vm.groceries">
+    <h2 class="row">Grocery List</h2>
+    <!-- Pagination -->
+    <div class="row" ng-show="vm.groceries.length > 0">
+        <div class="col-sm-12 col-md-12 col-lg-12 list header">
+            <ul uib-pagination total-items="vm.pages.totalItems" ng-model="vm.pages.currentPage" items-per-page="vm.pages.itemsPerPage"
+                class="pagination-sm" max-size="vm.pages.maxsize" boundary-link-numbers="true" rotate="false" ng-change="vm.pages.changed()">
+            </ul>
+        </div>
+    </div>
+    <!-- End: Pagination -->
+    <div class="row">
+        <h3 class="alert alert-success" ng-show="vm.searched">{{vm.searchedSummary}}</h3>
+        <hr ng-show="vm.searched" />
+        <div class="col-sm-12 col-md-6 col-lg-4 employee" ng-repeat="item in vm.groceries">
+            <div class="row" style="margin-bottom: 50px;">
+                <img class="item-picture" src="https://www.barcodesinc.com/generator/image.php?code={{item.upc12}}&style=197&type=C128B&width=219&height=50&xres=1&font=3" alt="Profile picture of {{item.brand}}: {{item.name}}" style="width: 60%;" />
+                <h4>ID: {{item.id}}</h4>
+                <h4>Product Name: {{item.name}}</h4>
+                <h4>Brand: {{item.brand}}</h4>
+                <button class="btn btn-primary" type="button" ng-click="vm.editItem(item)">
+                    Edit
+                </button>
+                <button class="btn btn-danger" type="button" ng-click="vm.deleteItem(item)">
+                    Delete
+                </button>
+            </div>
+        </div>
+        <!-- Pagination -->
+        <div class="row" ng-show="vm.groceries.length > 0">
+            <hr />
+            <div class="col-sm-12 col-md-12 col-lg-12 list header">
+                <ul uib-pagination total-items="vm.pages.totalItems" ng-model="vm.pages.currentPage" items-per-page="vm.pages.itemsPerPage" class="pagination-sm" max-size="vm.pages.maxsize" boundary-link-numbers="true" rotate="false" ng-change="vm.pages.changed()">
+                </ul>
+            </div>
+        </div>
+        <!-- End: Pagination -->
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+  "name": "angular_1_grocer",
+  "description": "A 3-page Grocery Management module using Angular 1.x, Express.js and MySQL",
+  "main": "client/client.module.js",
+  "authors": [
+    "Woody See"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.6",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "angular-bootstrap": "^2.5.0",
+    "angular-ui-router": "^1.0.10"
+  }
+}

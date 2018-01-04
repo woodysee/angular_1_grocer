@@ -1,0 +1,60 @@
+<form name="addForm" class="jumbotron addForm" ng-submit="addForm.$valid && vm.addRecord()" required novalidate>
+    <div class="form-group">
+        <label for="upc12">
+            Universal Product Code (UPC12)
+        </label>
+        <input name="upc12" type="text" class="form-control" id="upc12" ng-model="vm.add.upc12" ng-value="vm.add.upc12" ng-pattern="/^([0-9]{12})$/" ng-valid="/^([0-9]{12})$/" placeholder="e.g. 12345678901" required/>
+        <div ng-show="addForm.upc12.$touched || addForm.$submitted">
+            <div ng-show="addForm.upc12.$error.pattern">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Only numbers from 0 to 9 are allowed in UPC12
+            </div>
+            <div ng-show="addForm.upc12.$error.required">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Please fill in its UPC12
+            </div>
+            <div ng-show="addForm.upc12.$error.minlength">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Only exactly 12 numbers long are allowed in UPC12
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="brand">
+            Brand
+        </label>
+        <input name="brand" type="text" ng-model="vm.add.brand" ng-value="vm.add.brand" class="form-control" id="brand" placeholder="e.g. Ayam Brand" required />
+        <div ng-show="addForm.brand.$touched || addForm.$submitted">
+            <div ng-show="addForm.brand.$error.required">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Please fill in the brand name of the item
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="name">
+            Name
+        </label>
+        <input name="name" type="text" ng-model="vm.add.name" ng-value="vm.add.name" class="form-control" id="name" placeholder="e.g. Tuna Chunks In Water 150G" required />
+        <div ng-show="addForm.name.$touched || addForm.$submitted">
+            <div ng-show="addForm.brand.$error.required">
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                Please fill in the product name of the item
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">
+            Create new record
+        </button>
+    </div>
+    <hr />
+    <div class="form-group">
+        <button type="button" class="btn btn-secondary" ng-click="vm.autoFillDummy()">
+            Auto-fill dummy record
+        </button>
+        <button type="button" class="btn btn-secondary" ng-click="vm.clearDummy()">
+            Clear dummy record
+        </button>
+    </div>
+</form>
